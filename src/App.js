@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header'
+import Form from './components/Form'
+import Summary from './components/Summary'
+import Result from './components/Result'
+
+import styled from '@emotion/styled'
+
+const Container = styled.div`
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 50px;
+`
+
+const FormContainer = styled.div`
+    background: #fff;
+    padding: 3rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+`
+
+export default function App() {
+    const [summary, setSummary] = useState({
+        cotization: 0,
+        data: {
+            brand: '',
+            year: '',
+            plan: '',
+        },
+    })
+
+    const { data, cotization } = summary
+
+    return (
+        <Container>
+            <Header title='Cotizador de Seguros' />
+
+            <FormContainer>
+                <Form setSummary={setSummary} />
+
+                <Summary data={data} />
+
+                <Result cotization={cotization} />
+            </FormContainer>
+        </Container>
+    )
 }
-
-export default App;
