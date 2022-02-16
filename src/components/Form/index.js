@@ -85,24 +85,28 @@ export default function Form({ setSummary }) {
 
             <Field>
                 <Label>Plan</Label>
-                <InputRadio
-                    type='radio'
-                    name='plan'
-                    value='basic'
-                    id='basic'
-                    checked={plan === 'basic'}
-                    onChange={getData}
-                />
-                <label htmlFor='basic'>Básico</label>
-                <InputRadio
-                    type='radio'
-                    name='plan'
-                    value='complete'
-                    id='complete'
-                    checked={plan === 'complete'}
-                    onChange={getData}
-                />
-                <label htmlFor='complete'>Completo</label>
+                <div>
+                    <InputRadio
+                        type='radio'
+                        name='plan'
+                        value='basic'
+                        id='basic'
+                        checked={plan === 'basic'}
+                        onChange={getData}
+                    />
+                    <label htmlFor='basic'>Básico</label>
+                </div>
+                <div>
+                    <InputRadio
+                        type='radio'
+                        name='plan'
+                        value='complete'
+                        id='complete'
+                        checked={plan === 'complete'}
+                        onChange={getData}
+                    />
+                    <label htmlFor='complete'>Completo</label>
+                </div>
             </Field>
 
             <Button type='submit'>Cotizar</Button>

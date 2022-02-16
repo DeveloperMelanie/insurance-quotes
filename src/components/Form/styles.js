@@ -2,8 +2,12 @@ import styled from '@emotion/styled'
 
 export const Field = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 1rem;
-    align-items: center;
+
+    @media (min-width: 350px) {
+        flex-wrap: nowrap;
+    }
 `
 
 export const Label = styled.label`
